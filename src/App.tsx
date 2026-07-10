@@ -43,9 +43,6 @@ export default function App() {
         // Set Logo and Title
         if (logoRes && !logoRes.error) {
           setLogoData(logoRes);
-          if (logoRes.title) {
-            document.title = logoRes.title;
-          }
         }
 
         // Set Main Content
@@ -56,9 +53,9 @@ export default function App() {
           setContactData(allRes.contact || null);
           setFooterData(allRes.footer || null);
 
-          if (!logoRes?.title && allRes.beranda?.title) {
-            document.title = allRes.beranda.title;
-          }
+          // Fallback title logic
+          const docTitle = logoRes?.title || allRes.beranda?.title || 'Imat Abu Kamal';
+          document.title = docTitle;
         } else {
           setError('Gagal memuat data portfolio dari server.');
         }
@@ -86,6 +83,7 @@ export default function App() {
       {/* Navbar component */}
       <Navbar 
         logoData={logoData}
+        berandaData={berandaData}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         onOpenModal={() => setIsModalOpen(true)}

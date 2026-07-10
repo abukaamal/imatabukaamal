@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { LogoData } from '../types';
+import { LogoData, BerandaData } from '../types';
 
 interface NavbarProps {
   logoData: LogoData | null;
+  berandaData: BerandaData | null;
   currentPage: string;
   setCurrentPage: (page: string) => void;
   onOpenModal: () => void;
 }
 
-export default function Navbar({ logoData, currentPage, setCurrentPage, onOpenModal }: NavbarProps) {
+export default function Navbar({ logoData, berandaData, currentPage, setCurrentPage, onOpenModal }: NavbarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  const logoName = logoData?.logo_name || '⚡ dev<span style="-webkit-text-fill-color:#1e293b;">folio</span>';
-  const logoImage = logoData?.image_url || '';
+  const logoName = logoData?.logo_name || berandaData?.logo_name || '⚡ dev<span style="-webkit-text-fill-color:#1e293b;">folio</span>';
+  const logoImage = logoData?.image_url || berandaData?.image_url || '';
 
   const navItems = [
     { id: 'beranda', label: 'Beranda' },

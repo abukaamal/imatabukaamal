@@ -10,6 +10,7 @@ export interface BerandaData {
   subtitle?: string;
   experience?: string;
   image_url?: string;
+  logo_name?: string;
 }
 
 export interface TentangData {
