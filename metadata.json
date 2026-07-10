@@ -1,0 +1,6 @@
+{
+  "name": "Imat Abu Kamal Portfolio",
+  "description": "A highly modular React developer portfolio application showcasing skills, experience, and contact forms integrated with Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
